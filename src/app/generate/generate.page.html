@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Generador de QR</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">Salir
+        <ion-icon slot="icon-only" name="arrow-back-outline">Salir</ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <!-- Condición para mostrar la vista 2 -->
+  <div class="segment" *ngIf="segment === 'generate'">
+    <div class="segment-content">
+      <div id="qrImage">
+        <div class="d-flex-center">
+          <div class="d-flex-center qr-wrapper">
+            <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M"></qr-code>
+            <img *ngIf="!qrText" class="qr-placeholder" src="assets/images/qr.webp" alt="Placeholder QR">
+          </div>
+        </div>
+      </div>
+
+      <ion-textarea 
+        label="Escribe algo para convertir en QR" 
+        labelPlacement="stacked"
+        fill="outline"
+        [(ngModel)]="qrText"
+        rows="4"
+        [autoGrow]="true">
+      </ion-textarea>
+
+      <ion-button 
+        (click)="captureScreen()" 
+        *ngIf="qrText" 
+        class="submit ion-margin-top" 
+        expand="block">
+        Compartir
+        <ion-icon slot="end" name="share-social-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

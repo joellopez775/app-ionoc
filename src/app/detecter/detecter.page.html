@@ -1,0 +1,35 @@
+<ion-header>
+  <img src="{{componente.img}}" alt="">
+  <ion-toolbar>
+    <ion-title>Detecter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card></ion-card>
+
+<ion-content class="ion-text-center">
+  <ion-button
+    color="warning"
+    class="custom-button"
+    (click)="onDocenteClick()"
+  >
+    Docente
+  </ion-button>
+
+  <ion-button
+    color="warning"
+    class="custom-button"
+    (click)="onAlumnoClick()"
+  >
+    Alumno
+  </ion-button>
+
+  <!-- Contenedor de la animación -->
+  <div class="animation-container">
+    <div class="ball" [ngClass]="{'animate-ball': animate}"></div>
+  </div>
+
+  <div *ngIf="showImage" @fadeInOut @slideOutRight>
+    <img [src]="componente.img" alt="Imagen detectada" />
+  </div>
+</ion-content>
