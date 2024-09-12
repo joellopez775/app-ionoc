@@ -1,15 +1,23 @@
+
+
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <div class="bg-black absolute top-0 left-0 bg-gradient-to-b from-gray-800 via-gray-800 to-black bottom-0 leading-5 h-full w-full overflow-hidden">
 </div>
+
 <div class="relative min-h-screen sm:flex sm:flex-row justify-center bg-transparent rounded-3xl shadow-xl">
   <div class="flex-col flex self-center lg:px-14 sm:max-w-4xl xl:max-w-md z-10">
     <div class="self-start hidden lg:flex flex-col text-yellow-300">
       <h1 class="my-3 font-semibold text-4xl">Bienvenido</h1>
     </div>
   </div>
-  <div class="flex justify-center self-center z-10">
+  <ion-card>
+   
+  </ion-card>
+  <div class="flex justify-center self-center z-10 mt-20"> <!-- Añadido mt-20 -->
     <div class="p-12 bg-yellow-100 mx-auto rounded-3xl w-96 ">
+      
       <div class="mb-7">
+        
         <h3 class="font-semibold text-2xl text-gray-800">Ingresar</h3>
         <p class="text-gray-400">No tienes cuenta? <a href="#" class="text-sm text-yellow-700 hover:text-yellow-600">Registrarse</a></p>
       </div>
@@ -32,10 +40,17 @@
         <div class="relative">
           <button (click)="validarUsuario()" type="submit" class="w-full flex justify-center bg-yellow-800 hover:bg-yellow-700 text-gray-100 p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500">
             <span *ngIf="!loading">Entrar</span>
+            
             <span *ngIf="loading" class="flex items-center">
               <ion-progress-bar [value]="progress" class="w-16"></ion-progress-bar>
             </span>
           </button>
+          <img src="{{componente.img}}">
+          <ion-buttons slot="start">
+            <ion-button class="back-button" (click)="goBack()">Salir
+              <ion-icon slot="icon-only" name="arrow-back-outline">Salir</ion-icon>
+            </ion-button>
+          </ion-buttons> 
         </div>
       </div>
     </div>

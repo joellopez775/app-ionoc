@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-docente',
   templateUrl: './docente.page.html',
@@ -14,8 +14,11 @@ export class DocentePage implements OnInit {
     usuario:"",
     password:""
   };
+  componente = {
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/711px-Logo_DuocUC.svg.png"
+  };
 
-  constructor(private navCtrl : NavController) { }
+  constructor(private navCtrl : NavController, private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,10 +34,14 @@ export class DocentePage implements OnInit {
         alert("Bienvenido");
       } else {
         alert("Error de login");
-        this.navCtrl.navigateRoot('/login');
+        this.navCtrl.navigateRoot('/docente');
       }
 
       this.loading = false; // Ocultar el componente de carga
     }, 1000); // Tiempo de simulación (1 segundo)
   }
+  goBack() {
+    this.router.navigate(['../detecter']); // Regresa a la página anterior
+  }
+
 }

@@ -7,7 +7,7 @@
       <h1 class="my-3 font-semibold text-4xl">Bienvenido</h1>
     </div>
   </div>
-  <div class="flex justify-center self-center z-10">
+  <div class="flex justify-center self-center z-10 mt-20"> <!-- Añadido mt-20 -->
     <div class="p-12 bg-yellow-100 mx-auto rounded-3xl w-96 ">
       <div class="mb-7">
         <h3 class="font-semibold text-2xl text-gray-800">Ingresar</h3>
@@ -37,6 +37,13 @@
             </span>
           </button>
         </div>
+        <img src="{{componente.img}}">
+        <ion-buttons slot="start">
+          <ion-button class="back-button"   (click)="goBack()">Salir
+            <ion-icon slot="icon-only" name="arrow-back-outline">Salir</ion-icon>
+          </ion-button>
+        </ion-buttons> 
+        
       </div>
     </div>
   </div>
